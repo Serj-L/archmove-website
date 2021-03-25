@@ -14,3 +14,5 @@
     }
  });
   //check broswer webP support
+
+  @@include('burger.js')

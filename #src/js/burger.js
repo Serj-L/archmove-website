@@ -1,4 +1,4 @@
-/* scroll-bar width calculation*/
+// scroll-bar width calculation
 const getscrollbarWidth = () => {
     const outer = document.createElement("div");
 
@@ -14,10 +14,30 @@ const getscrollbarWidth = () => {
 
     return scrollbarWidth;
 }
-/* /scroll-bar width calculation*/
+// /scroll-bar width calculation
 
-/* burger menu */
-$(document).ready(function() {
+// burger menu
+const burgerMenu = document.querySelector(".header__burger-btn");
+if (burgerMenu) {
+    const menuWrapper = document.querySelector(".header__nav-wrapper");
+    const body = document.querySelector("body");
+    const navLink = document.querySelector(".header__nav-item");
+    burgerMenu.addEventListener("click", function (e) {
+        burgerMenu.classList.toggle("active");
+        menuWrapper.classList.toggle("active");
+        body.classList.toggle("lock");
+        navLink.addEventListener("click", function (e) {
+            burgerMenu.classList.remove("active");
+            menuWrapper.classList.remove("active");
+            body.classList.remove("lock");
+
+        });
+
+    });
+
+}
+
+/* $(document).ready(function() {
 	$(".header__burger-btn").click(function(event) {
 		$(".header__burger-btn, .header__nav-wrapper").toggleClass("active")
         if($(".header__burger-btn").hasClass("active"))
@@ -39,4 +59,5 @@ $(document).ready(function() {
         $("body").css({"padding-right": ""})
         $("body").toggleClass("lock")
 	});
-/* /burger menu */
+} */
+// /burger menu

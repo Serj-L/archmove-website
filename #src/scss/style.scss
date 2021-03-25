@@ -10,6 +10,7 @@
 
 @import "fonts";
 @import "normalize";
+@import "header";
 
 *,
 *::before,
@@ -19,4 +20,48 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: "Sf Ui", sans-serif;
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.btn {
+  color: #ffffff;
+  font-weight: 600;
+  border: 2px solid #fd665e;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: 0.2s ease-in;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    left: -1px;
+    right: 0;
+    top: -1px;
+    bottom: 0;
+    background-color: #fd665e;
+    border-radius: 4px;
+    z-index: -1;
+    transform: scale(1);
+    transition: 0.2s ease-in;
+  }
+
+  @media (min-width: 993px) {
+    &:hover,
+    &:focus {
+      color: #fd665e;
+      &::after {
+        transform: scale(0);
+      }
+    }
+  }
 }

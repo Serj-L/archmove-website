@@ -1,4 +1,4 @@
-/* scroll up */
+// scroll up
 var scrbtn = $('.scroll-up-btn');
 
 $(window).scroll(function() {
@@ -13,4 +13,4 @@ scrbtn.on('click', function(e) {
   e.preventDefault();
   $('html, body').animate({scrollTop:0}, '100');
 });
-/* /scroll up */
+// scroll up
