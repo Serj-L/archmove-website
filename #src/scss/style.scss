@@ -11,6 +11,9 @@
 @import "fonts";
 @import "normalize";
 @import "header";
+@import "hero";
+@import "swiper-bundle.min";
+@import "samples";
 
 *,
 *::before,
@@ -25,9 +28,51 @@
 body {
   background-color: #e5e5e5;
   font-family: "Sf Ui", sans-serif;
-  &.lock {
-    overflow: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1 {
+  font-family: "New York XL", sans-serif;
+  font-size: calc(42px + 78 * ((100vw - 320px) / (1440 - 320)));
+  line-height: 100%;
+  font-weight: 700;
+  margin: 0;
+
+  @media (min-width: 1440px) {
+    font-size: 120px;
   }
+}
+
+h2 {
+  font-family: "New York XL", sans-serif;
+  font-size: calc(24px + 24 * ((100vw - 320px) / (1440 - 320)));
+  line-height: 59 / 48 * 100%;
+  font-weight: 700;
+  margin: 0;
+
+  @media (min-width: 1440px) {
+    font-size: 48px;
+  }
+}
+
+.color-word {
+  color: #fd665e;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .btn {
@@ -36,7 +81,7 @@ body {
   border: 2px solid #fd665e;
   border-radius: 4px;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   transition: 0.2s ease-in;
 
   &::after {
@@ -50,7 +95,7 @@ body {
     bottom: 0;
     background-color: #fd665e;
     border-radius: 4px;
-    z-index: -1;
+    z-index: -2;
     transform: scale(1);
     transition: 0.2s ease-in;
   }
