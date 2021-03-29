@@ -1,16 +1,20 @@
 // scroll up
-var scrbtn = $('.scroll-up-btn');
+scrbtn = document.querySelector('.scroll-up-btn');
 
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 100) {
-    scrbtn.addClass('active');
+window.onscroll = function() {scrollUpFunction()};
+
+function scrollUpFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    scrbtn.classList.add('active');
   } else {
-    scrbtn.removeClass('active');
+    scrbtn.classList.remove('active');
   }
-});
+}
 
-scrbtn.on('click', function(e) {
+scrbtn.addEventListener('click', function (e) {
   e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '100');
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"});
 });
 // scroll up

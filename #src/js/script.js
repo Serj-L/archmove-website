@@ -1,5 +1,5 @@
 @@include('burger.js')
-
+@@include('scroll-up.js')
 @@include('swiper-bundle.min.js')
 
 //check broswer webP support
@@ -54,17 +54,84 @@ breakpoints: {
 spaceBetween: 20,
 
 });
-//samples slider
-
 // slider button remove class active
-const sliderBtnNext = document.querySelector(".swiper-button-next");
-const sliderBtnPrev = document.querySelector(".swiper-button-prev");
+const sliderSamplesBtnNext = document.getElementById("samplesSliderBtnNext");
+const sliderSamplesBtnPrev = document.getElementById("samplesSliderBtnPrev");
 
-if (sliderBtnNext.classList.contains("active")) {
-    sliderBtnNext.addEventListener("click", function (e) {
-    sliderBtnNext.classList.remove("active");
+if (sliderSamplesBtnNext.classList.contains("active")) {
+    sliderSamplesBtnNext.addEventListener("click", function (e) {
+    sliderSamplesBtnNext.classList.remove("active");
   });
-  sliderBtnPrev.addEventListener("click", function (e) {
-    sliderBtnNext.classList.remove("active");
+  sliderSamplesBtnPrev.addEventListener("click", function (e) {
+    sliderSamplesBtnNext.classList.remove("active");
   });
 }
+
+//samples slider
+
+  //testimonials slider
+  const swiperTestimonials = new Swiper('.testimonials__slider', {
+    // parameters
+    direction: 'horizontal',
+    loop: true,
+    autoplay: true,
+
+    speed: 800,
+
+    autoHeight: true,
+
+    effect: "flip",
+
+    flipEffect: {
+      slideShadows: true,
+      limitRotation: true
+    },
+
+    /* effect: "fade",
+    fadeEffect: {
+      crossFade: true
+    }, */
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  });
+
+  // slider button remove class active
+const sliderTestimonialsBtnNext = document.getElementById("testimonialsSliderBtnNext");
+const sliderTestimonialsBtnPrev = document.getElementById("testimonialsSliderBtnPrev");
+
+if (sliderTestimonialsBtnNext.classList.contains("active")) {
+    sliderTestimonialsBtnNext.addEventListener("click", function (e) {
+    sliderTestimonialsBtnNext.classList.remove("active");
+  });
+  sliderTestimonialsBtnPrev.addEventListener("click", function (e) {
+    sliderTestimonialsBtnNext.classList.remove("active");
+  });
+}
+  //testimonials slider
+
+  //partners slider
+const swiperPartners = new Swiper('.partners__slider', {
+  // parameters
+  direction: 'horizontal',
+  loop: true,
+  autoplay: true,
+
+breakpoints: {
+
+  320: {slidesPerView: 1},
+
+  420: {slidesPerView: 2},
+
+  750: {slidesPerView: 3},
+
+  1170: {slidesPerView: 4},
+
+},
+
+spaceBetween: 20,
+
+});
+//partners slider
