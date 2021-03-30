@@ -1,5 +1,7 @@
 @@include('burger.js')
 @@include('scroll-up.js')
+@@include('show-password.js')
+@@include('modal.js')
 @@include('swiper-bundle.min.js')
 
 //check broswer webP support

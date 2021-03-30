@@ -316,6 +316,38 @@
     </div>
 </footer>
 <!--/ footer -->
+<!--sign in modal-->
+<div class="modal-sign-in" id="modal-sign-in">
+    <div class="modal-sign-in__wrapper">
+      <div class="modal-sign-in__body">
+        <div class="modal-sign-in__header">
+          <div class="modal-sign-in__title">Please sign in here</div>
+          <button type="button" class="btn-close"><span>&times;</span></button>
+        </div>
+        <form class="modal-sign-in__form" id="sign-in-form" action="#" name="sign-in-form" method="POST">
+            <div class="modal-sign-in__login">
+                <input placeholder="Login" class="modal-sign-in__login-input" id="modal-sign-in-login-input" form="sign-in-form" name="userLogin" required>
+            </div>
+            <div class="modal-sign-in__password">
+                <a href="#" class="modal-sign-in__password-control" onclick="return show_hide_password(this);"></a>
+                <input class="modal-sign-in__password-input" placeholder="Password" type="password" id="password-input" form="sign-in-form" name="userPassword" required>
+            </div>
+            <div class="modal-sign-in__stay-signed">
+                <a href="#" class="modal-sign-in__stay-signed-forgot">Forgot your password</a>
+               <div class="modal-sign-in__stay-signed-checkbox">
+                    <input class="stay-signed-chekbox" id="stay-signed-checkbox" type="checkbox" checked="checked">
+                    <label for="stay-signed-checkbox">Stay signed in</label>
+                </div>
+            </div>
+        </form>
+        <div class="modal-sign-in__footer">
+            <button type="button" class="modal-button-create-new-acc btn">Create a new account</button>
+            <button type="submit" class="modal-button-sign-in btn" form="sign-in-form">Sign in</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!--/sign in modal-->
 <script src="js/script.min.js"></script>
 </body>
 </html>

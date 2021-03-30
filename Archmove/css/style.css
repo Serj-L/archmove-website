@@ -1604,7 +1604,8 @@ body {
 }
 
 .header__nav-link,
-.footer__nav-link {
+.footer__nav-link,
+.modal-sign-in__stay-signed-forgot {
   display: block;
   line-height: 120%;
   text-decoration: none;
@@ -1619,7 +1620,8 @@ body {
 }
 
 .header__nav-link::after,
-.footer__nav-link::after {
+.footer__nav-link::after,
+.modal-sign-in__stay-signed-forgot::after {
   content: "";
   position: absolute;
   left: 5px;
@@ -1712,6 +1714,11 @@ button {
   transition: 0.2s ease-in;
 }
 
+.btn-close {
+  border: 0;
+  outline: none;
+}
+
 .scroll-up-btn {
   display: none;
 }
@@ -1789,6 +1796,238 @@ button {
   display: flex;
 }
 
+.modal-sign-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.modal-sign-in.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-sign-in__wrapper {
+  background-color: #ececec;
+  max-width: 500px;
+  border-radius: 6px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.modal-sign-in__wrapper.active {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.modal-sign-in__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #fd665e;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 15px;
+}
+
+.modal-sign-in__header .btn-close span {
+  font-size: 32px;
+}
+
+.modal-sign-in__title {
+  font-size: 22px;
+}
+
+.modal-sign-in__form {
+  padding: 15px;
+}
+
+.modal-sign-in__password {
+  margin-top: 10px;
+  position: relative;
+}
+
+.modal-sign-in__password .modal-sign-in__password-control {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: url("../img/eye-slash-regular.svg") center no-repeat;
+}
+
+.modal-sign-in__password .modal-sign-in__password-control.view {
+  background: url("../img/eye-regular.svg") center no-repeat;
+}
+
+.modal-sign-in__password .modal-sign-in__password-control:focus + .modal-sign-in__password-input,
+.modal-sign-in__password .modal-sign-in__password-control:hover + .modal-sign-in__password-input {
+  border-color: #fd665e;
+}
+
+.modal-sign-in__login-input,
+.modal-sign-in__password-input {
+  font-size: 18px;
+  line-height: 100%;
+  font-weight: 400;
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 0 15px 0;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.modal-sign-in__login-input::-webkit-input-placeholder, .modal-sign-in__password-input::-webkit-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.modal-sign-in__login-input::-moz-placeholder, .modal-sign-in__password-input::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.modal-sign-in__login-input:-ms-input-placeholder, .modal-sign-in__password-input:-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.modal-sign-in__login-input::-ms-input-placeholder, .modal-sign-in__password-input::-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.modal-sign-in__login-input::placeholder,
+.modal-sign-in__password-input::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.modal-sign-in__login-input:focus,
+.modal-sign-in__password-input:focus {
+  border-color: #fd665e;
+}
+
+.modal-sign-in__stay-signed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.modal-sign-in__stay-signed-checkbox .stay-signed-chekbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.modal-sign-in__stay-signed-checkbox .stay-signed-chekbox + label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.modal-sign-in__stay-signed-checkbox .stay-signed-chekbox + label::before {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  border: 2px solid #666666;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.modal-sign-in__stay-signed-checkbox .stay-signed-chekbox:checked + label::before {
+  border-color: #fd665e;
+  background-color: #fd665e;
+  background-image: url("../img/check-box-icon.svg");
+  background-size: 90%;
+}
+
+.modal-sign-in__stay-signed-checkbox .stay-signed-chekbox:not(:disabled):not(:checked) + label:hover::before {
+  cursor: pointer;
+}
+
+.modal-sign-in__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 15px;
+}
+
+.modal-sign-in__footer .modal-button-sign-in {
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.modal-sign-in__footer .modal-button-create-new-acc {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 @media (min-width: 381px) {
   .no-webp .testimonials__slide-customer-review {
     background: url("../img/quotes.png") top left no-repeat; }
@@ -1837,7 +2076,9 @@ button {
   .header__nav-link:hover,
   .header__nav-link:focus,
   .footer__nav-link:hover,
-  .footer__nav-link:focus {
+  .footer__nav-link:focus,
+  .modal-sign-in__stay-signed-forgot:hover,
+  .modal-sign-in__stay-signed-forgot:focus {
     color: #fd665e;
     text-shadow: 0 0 0.6px #fd665e, 0 0 0.8px #fd665e;
   }
@@ -1845,7 +2086,9 @@ button {
   .header__nav-link:hover::after,
   .header__nav-link:focus::after,
   .footer__nav-link:hover::after,
-  .footer__nav-link:focus::after {
+  .footer__nav-link:focus::after,
+  .modal-sign-in__stay-signed-forgot:hover::after,
+  .modal-sign-in__stay-signed-forgot:focus::after {
     -webkit-transform: scaleX(1);
         -ms-transform: scaleX(1);
             transform: scaleX(1);
@@ -1908,6 +2151,11 @@ button {
   .scroll-up-btn.active {
     opacity: 1;
     visibility: visible;
+  }
+
+  .modal-sign-in__login-input:hover,
+  .modal-sign-in__password-input:hover {
+    border-color: #fd665e;
   }
 }
 
