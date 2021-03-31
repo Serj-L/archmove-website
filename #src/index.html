@@ -50,8 +50,8 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="header__search-sign-item"><button class="header__search-sign-link header__search-sign-link--sign-in nav-link" type="button">Sign In</button></li>
-                        <li class="header__search-sign-item"><button class="header__search-sign-link header__search-sign-link--sign-up btn nav-link" type="button">Sign Up</button></li>
+                        <li class="header__search-sign-item"><button class="header__search-sign-link header__search-sign-link--sign-in nav-link sign-in-js-button" type="button">Sign In</button></li>
+                        <li class="header__search-sign-item"><button class="header__search-sign-link header__search-sign-link--sign-up btn nav-link sign-up-js-button" type="button">Sign Up</button></li>
                     </ul>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="hero__content">
                 <div class="hero__description">
                     <p class="hero__text">The first and most trusted marketplace of design & build house in The World. 100% guaranteed Build safe, comfortable and transparent with a project management for the best result</p>
-                    <button class="hero__btn btn" type="button">Free Consultation</button>
+                    <button class="hero__btn btn consultation-js-button" type="button">Free Consultation</button>
                 </div>
                 <div class="hero__img-wrapper">
                     <img src="img/hero-img.jpg" alt="dream house foto" class="hero__img img-bg">
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="features__btn btn" type="button">Free Consultation</button>
+                <button class="features__btn btn consultation-js-button" type="button">Free Consultation</button>
             </div>
         </div>
     </div>
@@ -243,7 +243,7 @@
             </div>
             <div class="testimonials__dream-realize-content">
                 <h2 class="testimonials__dream-realize-title">Realize your dream project with <span class="color-text">Archmove</span></h2>
-                <button class="testimonials__dream-realize-btn btn" type="button">Free Consultation</button>
+                <button class="testimonials__dream-realize-btn btn consultation-js-button" type="button">Free Consultation</button>
             </div>
         </div>
     </div>
@@ -317,37 +317,137 @@
 </footer>
 <!--/ footer -->
 <!--sign in modal-->
-<div class="modal-sign-in" id="modal-sign-in">
-    <div class="modal-sign-in__wrapper">
+<div class="modal-sign-in modal-screen" id="modal-sign-in">
+    <div class="modal-sign-in__wrapper modal-wrapper">
       <div class="modal-sign-in__body">
-        <div class="modal-sign-in__header">
+        <div class="modal-sign-in__header modal-header">
           <div class="modal-sign-in__title">Please sign in here</div>
           <button type="button" class="btn-close"><span>&times;</span></button>
         </div>
-        <form class="modal-sign-in__form" id="sign-in-form" action="#" name="sign-in-form" method="POST">
+        <form class="modal-sign-in__form modal-form" id="sign-in-form" action="#" name="sign-in-form" method="POST">
             <div class="modal-sign-in__login">
-                <input placeholder="Login" class="modal-sign-in__login-input" id="modal-sign-in-login-input" form="sign-in-form" name="userLogin" required>
+                <input placeholder="Login" class="modal-sign-in__login-input modal-input" id="modal-sign-in-login-input" form="sign-in-form" name="userLogin" required>
             </div>
-            <div class="modal-sign-in__password">
-                <a href="#" class="modal-sign-in__password-control" onclick="return show_hide_password(this);"></a>
-                <input class="modal-sign-in__password-input" placeholder="Password" type="password" id="password-input" form="sign-in-form" name="userPassword" required>
+            <div class="modal-sign-in__password password-input-wrapper">
+                <a href="#" class="modal-sign-in__password-control modal-password-show-icon" onclick="return show_hide_password(this);"></a>
+                <input class="modal-sign-in__password-input modal-input" placeholder="Password" type="password" id="password-input" form="sign-in-form" name="userPassword" required>
             </div>
             <div class="modal-sign-in__stay-signed">
-                <a href="#" class="modal-sign-in__stay-signed-forgot">Forgot your password</a>
+                <a href="#" class="modal-sign-in__stay-signed-forgot modal-link modal-close-link-js">Forgot your password</a>
                <div class="modal-sign-in__stay-signed-checkbox">
-                    <input class="stay-signed-chekbox" id="stay-signed-checkbox" type="checkbox" checked="checked">
+                    <input class="stay-signed-checkbox modal-input-checkbox" id="stay-signed-checkbox" type="checkbox" checked="checked">
                     <label for="stay-signed-checkbox">Stay signed in</label>
                 </div>
             </div>
         </form>
-        <div class="modal-sign-in__footer">
-            <button type="button" class="modal-button-create-new-acc btn">Create a new account</button>
-            <button type="submit" class="modal-button-sign-in btn" form="sign-in-form">Sign in</button>
+        <div class="modal-sign-in__footer modal-footer modal-btn-wrapper">
+            <button type="button" class="modal-button-sign-up btn modal-btn sign-up-js-button">Sign Up</button>
+            <button type="submit" class="modal-button-sign-in btn modal-btn" form="sign-in-form">Sign In</button>
         </div>
       </div>
     </div>
 </div>
 <!--/sign in modal-->
+<!--sign up modal-->
+<div class="modal-sign-up modal-screen" id="modal-sign-up">
+    <div class="modal-sign-up__wrapper modal-wrapper">
+      <div class="modal-sign-up__body">
+        <div class="modal-sign-up__header modal-header">
+          <div class="modal-sign-up__title">Sign Up</div>
+          <button type="button" class="btn-close"><span>&times;</span></button>
+        </div>
+        <form class="modal-sign-up__form modal-form" id="sign-up-form" action="#" name="sign-up-form" method="POST">
+            <span class="modal-sign-up__description modal-description">Please fill in this form to create an account!</span>
+            <div class="modal-sign-up__first-name">
+                <label class="input-label" for="modal-sign-up-first-name-input">First name</label>
+                <input placeholder="First name" class="modal-sign-up__first-name-input modal-input" id="modal-sign-up-first-name-input" form="sign-up-form" name="userFirstName" required>
+            </div>
+            <div class="modal-sign-up__last-name">
+                <label class="input-label" for="modal-sign-up-last-name-input">Last name</label>
+                <input placeholder="Last name" class="modal-sign-up__last-name-input modal-input" id="modal-sign-up-last-name-input" form="sign-up-form" name="userLastName" required>
+            </div>
+            <div class="modal-sign-up__email">
+                <label class="input-label" for="modal-sign-up-email-input">E-mail</label>
+                <input placeholder="E-mail" class="modal-sign-up__email-input modal-input" type="email" id="modal-sign-up-email-input" form="sign-up-form" name="userEmail" required>
+            </div>
+            <div class="modal-sign-up__password">
+                <label class="input-label" for="modal-sign-up-password-input">Password</label>
+                <div class="password-input-wrapper">
+                    <a href="#" class="modal-sign-up__password-control modal-password-show-icon" onclick="return show_hide_password_signUp(this);"></a>
+                    <input class="modal-sign-up__password-input modal-input" placeholder="Password" type="password" id="sign-up-password-input" form="sign-up-form" name="userPassword" required>
+                </div>
+            </div>
+            <div class="modal-sign-up__confirm-password">
+                <label class="input-label" for="modal-sign-up-confirm-password-input">Confirm password</label>
+                <div class="password-input-wrapper">
+                    <a href="#" class="modal-sign-up__password-control-confirm modal-password-show-icon" onclick="return show_hide_confirm_password_signUp(this);"></a>
+                    <input class="modal-sign-up__confirm-password-input modal-input" placeholder="Confirm password" type="password" id="sign-up-confirm-password-input" form="sign-up-form" name="userConfirmPassword" required>
+                </div>
+            </div>
+            <div class="modal-sign-up__accept-terms">
+                <input class="modal-sign-up__accept-terms modal-input-checkbox" id="accept-terms-checkbox" type="checkbox" required>
+                <label class="modal-sign-up__accept-terms-checkbox-label" for="accept-terms-checkbox">I accept the </label>
+                <a href="#" class="modal-sign-up__accept-terms-checkbox-link modal-link" target="-blank">Terms of Use</a>
+                <span> & </span>
+                <a href="#" class="modal-sign-up__accept-terms-checkbox-link modal-link" target="-blank">Privacy Policy</a></span>
+            </div>
+        </form>
+        <div class="modal-sign-up__footer modal-footer">
+            <div class="modal-sign-up__footer-buttons modal-btn-wrapper">
+                <button type="reset" class="modal-button-reset btn modal-btn" form="sign-up-form">Reset</button>
+                <button type="submit" class="modal-button-sign-up btn modal-btn" form="sign-up-form">Sign Up</button>
+            </div>
+            <div class="modal-sign-up__footer-signin">
+                <span class="modal-sign-up__footer-text">Already have an account?</span>
+                <a href="#" class="modal-sign-up__footer-sign-in-link modal-link sign-in-js-button">Sign In here</a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--/sign up modal-->
+<!--free conwultation request modal-->
+<div class="modal-consultation modal-screen" id="modal-consultation">
+    <div class="modal-consultation__wrapper modal-wrapper">
+      <div class="modal-consultation__body">
+        <div class="modal-consultation__header modal-header">
+          <div class="modal-consultation__title">Free consultation</div>
+          <button type="button" class="btn-close"><span>&times;</span></button>
+        </div>
+        <form class="modal-consultation__form modal-form" id="consultation-form" action="#" name="consultation-form" method="POST">
+            <span class="modal-consultation__description modal-description">Please fill in this form to get our free consultation!</span>
+            <div class="modal-consultation__first-name">
+                <label class="input-label" for="modal-consultation-first-name-input">First name <span class="color-text">*</span></label>
+                <input placeholder="First name" class="modal-consultation__first-name-input modal-input" id="modal-consultation-first-name-input" form="consultation-form" name="userFirstName" required>
+            </div>
+            <div class="modal-consultation__last-name">
+                <label class="input-label" for="modal-consultation-last-name-input">Last name</label>
+                <input placeholder="Last name" class="modal-consultation__last-name-input modal-input" id="modal-consultation-last-name-input" form="consultation-form" name="userLastName">
+            </div>
+            <div class="modal-consultation__email">
+                <label class="input-label" for="modal-consultation-email-input">E-mail</label>
+                <input placeholder="E-mail" class="modal-consultation__email-input modal-input" type="email" id="modal-consultation-email-input" form="consultation-form" name="userEmail">
+            </div>
+            <div class="modal-consultation__phone">
+                <label class="input-label" for="modal-consultation-email-input">Phone <span class="color-text">*</span></label>
+                <input placeholder="Phone" class="modal-consultation__email-input modal-input" type="tel" id="modal-consultation-phone-input" form="consultation-form" name="userPhone" required>
+            </div>
+            <div class="modal-consultation__textarea">
+                <label class="textarea-label" for="modal-consultation-textarea">Additional information</label>
+                <textarea class="modal-consultation__textarea modal-textarea" id="modal-consultation-textarea" form="consultation-form" name="userMessage"></textarea>
+            </div>
+            <span class="modal-consultation__requiry"><span class="color-text">*</span> required fields</span>
+        </form>
+        <div class="modal-consultation__footer modal-footer">
+            <div class="modal-consultation__footer-buttons modal-btn-wrapper">
+                <button type="reset" class="modal-button-reset btn modal-btn" form="consultation-form">Reset</button>
+                <button type="submit" class="modal-button-consultation btn modal-btn" form="consultation-form">Get Free consultation!</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--/free consultation request modal-->
 <script src="js/script.min.js"></script>
 </body>
 </html>

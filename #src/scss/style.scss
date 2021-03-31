@@ -18,6 +18,7 @@
 @import "testimonials";
 @import "partners";
 @import "footer";
+@import "modals";
 
 *,
 *::before,
@@ -51,7 +52,7 @@ body {
 
 .header__nav-link,
 .footer__nav-link,
-.modal-sign-in__stay-signed-forgot {
+.modal-link {
   display: block;
   line-height: 120%;
   text-decoration: none;
@@ -138,7 +139,7 @@ button {
 }
 
 .btn {
-  padding: 16px 0;
+  padding: 16px 20px;
   color: #ffffff;
   font-weight: 600;
   border: 2px solid #fd665e;
@@ -271,211 +272,4 @@ button {
 
 .buttons-wrapper {
   display: flex;
-}
-
-//sign in modal
-.modal-sign-in {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.2s;
-
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  // .modal-sign-in__wrapper
-  &__wrapper {
-    background-color: #ececec;
-    max-width: 500px;
-    border-radius: 6px;
-    flex-grow: 1;
-    transform: translateY(-50%);
-    transition: 0.2s;
-
-    &.active {
-      transform: translateY(0);
-    }
-  }
-
-  // .modal-sign-in__body
-  &__body {
-  }
-
-  // .modal-sign-in__header
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #ffffff;
-    font-weight: 600;
-    background-color: #fd665e;
-    border-radius: 6px 6px 0 0;
-    padding: 10px 15px;
-
-    .btn-close {
-      span {
-        font-size: 32px;
-      }
-    }
-  }
-
-  // .modal-sign-in__title
-  &__title {
-    font-size: 22px;
-  }
-
-  // .modal-sign-in__form
-  &__form {
-    padding: 15px;
-  }
-
-  // .modal-sign-in__login
-  &__login {
-  }
-
-  // .modal-sign-in__login-input
-  &__login-input {
-  }
-
-  // .modal-sign-in__password
-  &__password {
-    margin-top: 10px;
-    position: relative;
-
-    .modal-sign-in__password-control {
-      display: inline-block;
-      width: 20px;
-      height: 15px;
-      position: absolute;
-      top: 50%;
-      right: 2%;
-      transform: translateY(-50%);
-      background: url("../img/eye-slash-regular.svg") center no-repeat;
-
-      &.view {
-        background: url("../img/eye-regular.svg") center no-repeat;
-      }
-
-      &:focus + .modal-sign-in__password-input,
-      &:hover + .modal-sign-in__password-input {
-        border-color: #fd665e;
-      }
-    }
-  }
-
-  // .modal-sign-in__password-input
-  &__password-input {
-  }
-
-  // .modal-sign-in__login-input, .modal-sign-in__password-input
-  &__login-input,
-  &__password-input {
-    font-size: 18px;
-    line-height: 100%;
-    font-weight: 400;
-    width: 100%;
-    height: 50px;
-    background-color: #ffffff;
-    outline: none;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    padding: 0 15px 0;
-    transition: 0.2s;
-    cursor: pointer;
-
-    &::placeholder {
-      color: rgba(51, 51, 51, 0.5);
-    }
-
-    &:focus {
-      border-color: #fd665e;
-    }
-
-    @media (min-width: 993px) {
-      &:hover {
-        border-color: #fd665e;
-      }
-    }
-  }
-
-  // .modal-sign-in__stay-signed
-  &__stay-signed {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  // .modal-sign-in__stay-signed-forgot
-  &__stay-signed-forgot {
-  }
-
-  // .modal-sign-in__stay-signed-checkbox
-  &__stay-signed-checkbox {
-    .stay-signed-chekbox {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-      & + label {
-        display: inline-flex;
-        align-items: center;
-        user-select: none;
-      }
-
-      & + label::before {
-        content: "";
-        display: inline-block;
-        width: 1.2em;
-        height: 1.2em;
-        flex-shrink: 0;
-        flex-grow: 0;
-        border: 2px solid #666666;
-        border-radius: 0.25em;
-        margin-right: 0.5em;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 50% 50%;
-      }
-
-      &:checked + label::before {
-        border-color: #fd665e;
-        background-color: #fd665e;
-        background-image: url("../img/check-box-icon.svg");
-        background-size: 90%;
-      }
-
-      &:not(:disabled):not(:checked) + label:hover::before {
-        cursor: pointer;
-      }
-    }
-  }
-
-  // .modal-sign-in__footer
-  &__footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px;
-
-    .modal-button-sign-in {
-      margin-left: 10px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .modal-button-create-new-acc {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
 }
