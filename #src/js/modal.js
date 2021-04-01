@@ -1,12 +1,13 @@
-const signinBtns = document.querySelectorAll(".sign-in-js-button");
-const signupBtns = document.querySelectorAll(".sign-up-js-button");
-const consultationBtns = document.querySelectorAll(".consultation-js-button");
+const modals = document.querySelectorAll(".modal-screen");
 const signinModal = document.querySelector(".modal-sign-in");
 const signupModal = document.querySelector(".modal-sign-up");
 const consultationModal = document.querySelector(".modal-consultation");
 const signinModalWindow = document.querySelector(".modal-sign-in__wrapper");
 const signupModalWindow = document.querySelector(".modal-sign-up__wrapper");
 const consultationModalWindow = document.querySelector(".modal-consultation__wrapper");
+const signinBtns = document.querySelectorAll(".sign-in-js-button");
+const signupBtns = document.querySelectorAll(".sign-up-js-button");
+const consultationBtns = document.querySelectorAll(".consultation-js-button");
 const modalCloseBtns = document.querySelectorAll(".btn-close");
 const modalCloseLinks = document.querySelectorAll(".modal-close-link-js");
 const modalSigninClose = () => {
@@ -24,6 +25,15 @@ const modalConsultationClose = () => {
     consultationModal.classList.remove("active");
     consultationModalWindow.classList.remove("active");
 };
+
+function lookingForActiveModals() {
+    let items = modals;
+    items.forEach(function(value, i, arr) {
+        if (value.classList.contains("active")) {
+            hideScroll();
+        }
+});
+}
 
 if (signinModal) {
 
@@ -43,7 +53,7 @@ if (signinModal) {
     }
 
     if (modalCloseBtns.length > 0) {
-        modalCloseBtns.forEach( modalCloseBtn => {
+        modalCloseBtns.forEach(modalCloseBtn => {
             modalCloseBtn.addEventListener("click", function (e) {
                 modalSigninClose();
             });
@@ -51,17 +61,19 @@ if (signinModal) {
     }
 
     if (signupBtns.length > 0) {
-        signupBtns.forEach( signupBtn => {
+        signupBtns.forEach(signupBtn => {
             signupBtn.addEventListener("click", function (e) {
                 modalSigninClose();
+                lookingForActiveModals();
             });
         });
     }
 
     if (modalCloseLinks.length > 0) {
-        modalCloseLinks.forEach( modalCloseLink => {
+        modalCloseLinks.forEach(modalCloseLink => {
             modalCloseLink.addEventListener("click", function (e) {
                 modalSigninClose();
+                lookingForActiveModals();
             });
         });
     }
@@ -95,7 +107,7 @@ if (signupModal) {
     }
 
     if (modalCloseBtns.length > 0) {
-        modalCloseBtns.forEach( modalCloseBtn => {
+        modalCloseBtns.forEach(modalCloseBtn => {
             modalCloseBtn.addEventListener("click", function (e) {
                 modalSignupClose();
             });
@@ -103,17 +115,19 @@ if (signupModal) {
     }
 
     if (signinBtns.length > 0) {
-        signinBtns.forEach( signinBtn => {
+        signinBtns.forEach(signinBtn => {
             signinBtn.addEventListener("click", function (e) {
                 modalSignupClose();
+                lookingForActiveModals();
             });
         });
     }
 
     if (modalCloseLinks.length > 0) {
-        modalCloseLinks.forEach( modalCloseLink => {
+        modalCloseLinks.forEach(modalCloseLink => {
             modalCloseLink.addEventListener("click", function (e) {
                 modalSignupClose();
+                lookingForActiveModals();
             });
         });
     }
@@ -126,40 +140,39 @@ if (signupModal) {
             modalSignupClose();
         }
     });
+}
 
-    if (consultationModal) {
+if (consultationModal) {
 
-        if (consultationBtns.length > 0) {
-            consultationBtns.forEach(consultationBtn => {
-                consultationBtn.addEventListener("click", function (e) {
-                    consultationModal.classList.add("active");
-                    consultationModalWindow.classList.add("active");
+    if (consultationBtns.length > 0) {
+        consultationBtns.forEach(consultationBtn => {
+            consultationBtn.addEventListener("click", function (e) {
+                consultationModal.classList.add("active");
+                consultationModalWindow.classList.add("active");
 
-                    if (consultationModal.classList.contains("active")) {
-                        hideScroll();
-                    } else {
-                        showScroll();
-                    }
-                });
+                if (consultationModal.classList.contains("active")) {
+                    hideScroll();
+                } else {
+                    showScroll();
+                }
             });
-        }
-
-        if (modalCloseBtns.length > 0) {
-            modalCloseBtns.forEach( modalCloseBtn => {
-                modalCloseBtn.addEventListener("click", function (e) {
-                    modalSignupClose();
-                });
-            });
-        }
-
-        consultationModal.addEventListener("click", function (event) {
-            if (event.target.closest(".modal-sign-up__wrapper")) {
-                return;
-            }
-            else {
-                modalConsultationClose();
-            }
         });
     }
 
+    if (modalCloseBtns.length > 0) {
+        modalCloseBtns.forEach( modalCloseBtn => {
+            modalCloseBtn.addEventListener("click", function (e) {
+                modalConsultationClose();
+            });
+        });
+    }
+
+    consultationModal.addEventListener("click", function (event) {
+        if (event.target.closest(".modal-consultation__wrapper")) {
+            return;
+        }
+        else {
+            modalConsultationClose();
+        }
+    });
 }

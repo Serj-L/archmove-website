@@ -1610,6 +1610,9 @@ button.swiper-pagination-bullet {
 }
 
 .modal-wrapper {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   background-color: #ececec;
   max-width: 500px;
   border-radius: 6px;
@@ -2839,6 +2842,14 @@ button {
 @media (min-width: 381px) and (max-width: 450px) {
   .testimonials__slide-customer-review {
     padding-left: 40px;
+  }
+}
+
+@media (max-height: 800px) {
+  .modal-screen {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 

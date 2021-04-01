@@ -50,12 +50,11 @@ if (burgerMenu) {
 
         if (menuWrapper.classList.contains("active")) {
             hideScroll();
+            window.addEventListener("resize", killBurger);
         } else {
             showScroll();
         }
     });
-
-    window.addEventListener("resize", killBurger);
 
     const menuLinks = document.querySelectorAll(".nav-link");
     if (menuLinks.length > 0) {

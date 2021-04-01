@@ -14,12 +14,17 @@
     transition: 0.2s;
     overflow: auto;
 
+    @media (max-height: 800px) {
+        align-items: flex-start;
+    }
+
     &.active {
         opacity: 1;
         visibility: visible;
     }
 }
 .modal-wrapper {
+    height: min-content;
     background-color: #ececec;
     max-width: 500px;
     border-radius: 6px;
