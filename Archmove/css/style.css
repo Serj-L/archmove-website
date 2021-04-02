@@ -501,6 +501,7 @@ template {
 
 .header__search-sign-item:first-child {
   margin-right: 15px;
+  position: relative;
 }
 
 .header__search-sign-link {
@@ -544,6 +545,122 @@ template {
 .header__search-sign-link--sign-up {
   padding: 15px 20px;
   width: 100px;
+}
+
+.header__search-sign-search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 25vw;
+  top: -90%;
+  right: -85%;
+  -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+      -ms-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header__search-sign-search-form.active {
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.header__search-sign-search-input {
+  height: 50px;
+  color: #585858;
+  background-color: #ffffff;
+  padding: 0 15px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  outline: none;
+  border: none;
+  border-top: 2px solid #c7c7c7;
+  border-bottom: 2px solid #c7c7c7;
+  -webkit-transition-delay: 0.3s;
+       -o-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.header__search-sign-search-input::-webkit-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.header__search-sign-search-input::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.header__search-sign-search-input:-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.header__search-sign-search-input::-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.header__search-sign-search-input::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.header__search-sign-search-input:focus {
+  border-color: #fd665e;
+}
+
+.header__search-sign-search-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #fd665e;
+  border-radius: 0 4px 4px 0;
+  outline: none;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+.header__search-sign-search-btn-icon-wrapper {
+  width: 22px;
+  height: 22px;
+}
+
+.header__search-sign-search-btn-icon {
+  fill: #ffffff;
+}
+
+.header__search-sign-search-btn-close {
+  height: 50px;
+  font-size: 26px;
+  font-weight: normal;
+  color: #ffffff;
+  background-color: #fd665e;
+  outline: none;
+  border-radius: 4px 0 0 4px;
+  padding: 5px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .header__burger-btn {
@@ -2147,6 +2264,10 @@ button {
     letter-spacing: 0;
   }
 
+  .header__search-sign-search-input:hover {
+    border-color: #fd665e;
+  }
+
   .modal-password-show-icon:focus + .modal-sign-in__password-input,
   .modal-password-show-icon:hover + .modal-sign-in__password-input,
   .modal-password-show-icon:focus + .modal-sign-up__password-input,
@@ -2278,6 +2399,12 @@ button {
   }
 }
 
+@media (max-width: 1070px) {
+  .header__nav-wrapper {
+    margin-left: 45px;
+  }
+}
+
 @media (max-width: 992px) {
   .header {
     padding: 0 0 62px 0;
@@ -2388,6 +2515,22 @@ button {
 
   .header__search-sign-link--sign-up {
     width: 130px;
+  }
+
+  .header__search-sign-search-form {
+    width: 100%;
+    top: -50%;
+    left: 0;
+    -webkit-transform: scaleY(0);
+        -ms-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+  }
+
+  .header__search-sign-search-input {
+    font-size: 24px;
   }
 
   .header__burger-btn {
@@ -2822,6 +2965,12 @@ button {
 @media (max-width: 380px) {
   .testimonials__slide-customer-position {
     padding-left: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .header__search-sign-search-input {
+    padding: 0 5px 0;
   }
 }
 

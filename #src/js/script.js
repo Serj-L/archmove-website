@@ -19,7 +19,51 @@
         document.querySelector('body').classList.add('no-webp');
     }
  });
-  //check broswer webP support
+ //check broswer webP support
+
+  //search input
+  const searchBtnOpen = document.querySelector(".header__search-sign-link--search");
+  const searchBtnClose = document.querySelector(".header__search-sign-search-btn-close");
+  const searchForm = document.querySelector(".header__search-sign-search-form");
+  const searchFormInput = document.querySelector(".header__search-sign-search-input");
+
+if (searchForm) {
+
+  searchBtnOpen.addEventListener("click", function (e) {
+    searchForm.classList.add("active");
+    searchBtnOpen.blur();
+
+    if (searchForm.classList.contains("active")) {
+
+      searchBtnClose.addEventListener("click", function (e) {
+        searchForm.classList.remove("active");
+        searchFormInput.value = "";
+      });
+
+      window.onscroll = function() {scrollUp()};
+      function scrollUp() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          searchForm.classList.remove("active");
+          searchFormInput.value = "";
+        }
+      }
+
+      document.body.addEventListener("click", function (event) {
+        if (event.target.closest(".header__search-sign-search-form")) {
+            return;
+        }
+        else if (event.target.closest(".header__search-sign-link--search")) {
+          return;
+        }
+        else {
+          searchForm.classList.remove("active");
+          searchFormInput.value = "";
+        }
+     });
+    }
+  });
+}
+//search input
 
   //samples slider
 const swiper = new Swiper('.samples__slider', {
