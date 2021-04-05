@@ -30,14 +30,12 @@ const hideScroll = () => {
 
     document.body.style.paddingRight = scrollWidht;
     document.body.style.overflow = "hidden";
-
     wrapper.style.paddingRight = scrollWidht;
 };
 
 const showScroll = () => {
     document.body.style.paddingRight = "";
     document.body.style.overflow = "visible";
-
     wrapper.style.paddingRight = "";
 };
 
@@ -50,7 +48,13 @@ if (burgerMenu) {
 
         if (menuWrapper.classList.contains("active")) {
             hideScroll();
-            window.addEventListener("resize", killBurger);
+
+            window.addEventListener("resize", function (e) {
+                if(screen.width > 992 && menuWrapper.classList.contains("active")) {
+                    killBurger()
+                }
+            });
+
         } else {
             showScroll();
         }
@@ -338,29 +342,37 @@ if (consultationModal) {
 
   //search input
   const searchBtnOpen = document.querySelector(".header__search-sign-link--search");
+  const searchBtnOpenIcon = document.querySelector(".search-icon");
   const searchBtnClose = document.querySelector(".header__search-sign-search-btn-close");
   const searchForm = document.querySelector(".header__search-sign-search-form");
   const searchFormInput = document.querySelector(".header__search-sign-search-input");
 
+  const searchInputClose = () => {
+    searchForm.classList.remove("active");
+    searchBtnOpenIcon.classList.remove("active");
+    searchFormInput.value = "";
+};
+
 if (searchForm) {
 
   searchBtnOpen.addEventListener("click", function (e) {
-    searchForm.classList.add("active");
+    searchForm.classList.toggle("active");
+    searchBtnOpenIcon.classList.toggle("active");
     searchBtnOpen.blur();
+
 
     if (searchForm.classList.contains("active")) {
 
       searchBtnClose.addEventListener("click", function (e) {
-        searchForm.classList.remove("active");
-        searchFormInput.value = "";
+        searchInputClose();
       });
 
       window.onscroll = function() {scrollUp()};
       function scrollUp() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          searchForm.classList.remove("active");
-          searchFormInput.value = "";
+          searchInputClose();
         }
+
       }
 
       document.body.addEventListener("click", function (event) {
@@ -371,8 +383,7 @@ if (searchForm) {
           return;
         }
         else {
-          searchForm.classList.remove("active");
-          searchFormInput.value = "";
+          searchInputClose();
         }
      });
     }
@@ -380,7 +391,7 @@ if (searchForm) {
 }
 //search input
 
-  //samples slider
+//samples slider
 const swiper = new Swiper('.samples__slider', {
   // parameters
   direction: 'horizontal',
@@ -430,7 +441,7 @@ if (sliderSamplesBtnNext.classList.contains("active")) {
 
 //samples slider
 
-  //testimonials slider
+//testimonials slider
   const swiperTestimonials = new Swiper('.testimonials__slider', {
     // parameters
     direction: 'horizontal',
@@ -459,7 +470,7 @@ if (sliderSamplesBtnNext.classList.contains("active")) {
   },
   });
 
-  // slider button remove class active
+// slider button remove class active
 const sliderTestimonialsBtnNext = document.getElementById("testimonialsSliderBtnNext");
 const sliderTestimonialsBtnPrev = document.getElementById("testimonialsSliderBtnPrev");
 
@@ -471,11 +482,11 @@ if (sliderTestimonialsBtnNext.classList.contains("active")) {
     sliderTestimonialsBtnNext.classList.remove("active");
   });
 }
-  //testimonials slider
+//testimonials slider
 
-  //partners slider
+//partners slider
 const swiperPartners = new Swiper('.partners__slider', {
-  // parameters
+// parameters
   direction: 'horizontal',
   loop: true,
   autoplay: true,

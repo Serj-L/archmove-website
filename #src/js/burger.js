@@ -30,14 +30,12 @@ const hideScroll = () => {
 
     document.body.style.paddingRight = scrollWidht;
     document.body.style.overflow = "hidden";
-
     wrapper.style.paddingRight = scrollWidht;
 };
 
 const showScroll = () => {
     document.body.style.paddingRight = "";
     document.body.style.overflow = "visible";
-
     wrapper.style.paddingRight = "";
 };
 
@@ -50,7 +48,13 @@ if (burgerMenu) {
 
         if (menuWrapper.classList.contains("active")) {
             hideScroll();
-            window.addEventListener("resize", killBurger);
+
+            window.addEventListener("resize", function (e) {
+                if(screen.width > 992 && menuWrapper.classList.contains("active")) {
+                    killBurger()
+                }
+            });
+
         } else {
             showScroll();
         }
