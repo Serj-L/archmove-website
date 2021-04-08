@@ -356,10 +356,10 @@ if (consultationModal) {
 if (searchForm) {
 
   searchBtnOpen.addEventListener("click", function (e) {
+    e.preventDefault();
     searchForm.classList.toggle("active");
     searchBtnOpenIcon.classList.toggle("active");
     searchBtnOpen.blur();
-
 
     if (searchForm.classList.contains("active")) {
 
