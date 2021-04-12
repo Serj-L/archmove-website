@@ -342,7 +342,7 @@
                 <input placeholder="Login" class="modal-sign-in__login-input modal-input" id="modal-sign-in-login-input" form="sign-in-form" name="userLogin" required>
             </div>
             <div class="modal-sign-in__password password-input-wrapper">
-                <a href="#" class="modal-sign-in__password-control modal-password-show-icon" onclick="return show_hide_password(this);"></a>
+                <a href="#" class="modal-sign-in__password-control modal-password-show-icon" id="control-btn-sign-in"></a>
                 <input class="modal-sign-in__password-input modal-input" placeholder="Password" type="password" id="password-input" form="sign-in-form" name="userPassword" required>
             </div>
             <div class="modal-sign-in__stay-signed">
@@ -386,14 +386,14 @@
             <div class="modal-sign-up__password">
                 <label class="input-label" for="modal-sign-up-password-input">Password</label>
                 <div class="password-input-wrapper">
-                    <a href="#" class="modal-sign-up__password-control modal-password-show-icon" onclick="return show_hide_password_signUp(this);"></a>
+                    <a href="#" class="modal-sign-up__password-control modal-password-show-icon" id="control-btn-sign-up"></a>
                     <input class="modal-sign-up__password-input modal-input" placeholder="Password" type="password" id="sign-up-password-input" form="sign-up-form" name="userPassword" required>
                 </div>
             </div>
             <div class="modal-sign-up__confirm-password">
                 <label class="input-label" for="modal-sign-up-confirm-password-input">Confirm password</label>
                 <div class="password-input-wrapper">
-                    <a href="#" class="modal-sign-up__password-control-confirm modal-password-show-icon" onclick="return show_hide_confirm_password_signUp(this);"></a>
+                    <a href="#" class="modal-sign-up__password-control-confirm modal-password-show-icon" id="control-btn-sign-up-confirm"></a>
                     <input class="modal-sign-up__confirm-password-input modal-input" placeholder="Confirm password" type="password" id="sign-up-confirm-password-input" form="sign-up-form" name="userConfirmPassword" required>
                 </div>
             </div>
